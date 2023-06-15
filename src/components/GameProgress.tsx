@@ -1,15 +1,17 @@
 import { FaRedo } from "react-icons/fa";
 import { XoOrNull } from "./Square";
 
-function GameProgress({ setSquares, winner, xIsNext }: Props) {
+function GameProgress({ setSquares, squares, winner, xIsNext }: Props) {
   const handleClick = (): void => {
     setSquares(Array(9).fill(null));
   };
 
   return (
-    <div className="flex items-center justify-between m-4 md:mx-auto w-96">
+    <div className="flex items-center justify-between mx-auto my-4 w-96">
       <p>
-        {winner
+        {squares.every((square) => square != null) && !winner
+          ? `Game is a draw!!`
+          : winner
           ? `Player ${winner} won!!`
           : `Player ${xIsNext ? "X" : "O"} is Next`}
       </p>
@@ -29,6 +31,7 @@ function GameProgress({ setSquares, winner, xIsNext }: Props) {
 
 interface Props {
   setSquares: React.Dispatch<React.SetStateAction<XoOrNull[]>>;
+  squares: XoOrNull[];
   winner: null | string;
   xIsNext: boolean;
 }

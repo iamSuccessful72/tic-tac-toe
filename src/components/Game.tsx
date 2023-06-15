@@ -22,6 +22,7 @@ function Game() {
         {squares.every((item) => item === null) ? null : (
           <GameProgress
             setSquares={setSquares}
+            squares={squares}
             winner={winner}
             xIsNext={xIsNext}
           />

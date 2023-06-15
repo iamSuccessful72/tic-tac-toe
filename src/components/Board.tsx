@@ -13,7 +13,7 @@ function Board({ setSquares, setXIsNext, squares, xIsNext }: Props) {
   };
 
   return (
-    <div className="border border-black grid grid-cols-3 m-4 md:mx-auto w-96">
+    <div className="border border-black grid grid-cols-3 mx-auto my-4 w-96">
       {squares.map((value, index) => (
         <Square
           key={index}
